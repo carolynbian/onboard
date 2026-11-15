@@ -1,0 +1,658 @@
+{
+  "generatedAt": "2026-11-08T05:10:20.666Z",
+  "total": 43,
+  "matched": 43,
+  "mismatched": 0,
+  "rows": [
+    {
+      "id": 1,
+      "question": "高铁和飞机可以坐什么座位？",
+      "dept": "技术部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "示例报销制度"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "示例报销制度"
+      ],
+      "actualStatus": "部分有依据",
+      "match": true,
+      "note": "引用 1 处；核验状态 部分有依据"
+    },
+    {
+      "id": 2,
+      "question": "市内交通费单次超过多少需要部门负责人事前同意？",
+      "dept": "技术部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "示例报销制度"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "示例报销制度",
+        "示例请假制度"
+      ],
+      "actualStatus": "部分有依据",
+      "match": true,
+      "note": "引用 4 处；核验状态 部分有依据"
+    },
+    {
+      "id": 3,
+      "question": "发票丢了怎么报销？",
+      "dept": "技术部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "示例报销制度"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "示例报销制度"
+      ],
+      "actualStatus": "部分有依据",
+      "match": true,
+      "note": "引用 4 处；核验状态 部分有依据"
+    },
+    {
+      "id": 4,
+      "question": "报销单最晚什么时候提交？",
+      "dept": "销售部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "示例报销制度"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "示例报销制度",
+        "示例销售部制度"
+      ],
+      "actualStatus": "部分有依据",
+      "match": true,
+      "note": "引用 4 处；核验状态 部分有依据"
+    },
+    {
+      "id": 5,
+      "question": "事假一年最多可以请几天？",
+      "dept": "产品部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "示例请假制度"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "示例请假制度",
+        "示例年假制度"
+      ],
+      "actualStatus": "部分有依据",
+      "match": true,
+      "note": "引用 3 处；核验状态 部分有依据"
+    },
+    {
+      "id": 6,
+      "question": "病假需要什么证明材料？",
+      "dept": "销售部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "示例请假制度"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "示例请假制度",
+        "示例入职指南"
+      ],
+      "actualStatus": "部分有依据",
+      "match": true,
+      "note": "引用 4 处；核验状态 部分有依据"
+    },
+    {
+      "id": 7,
+      "question": "婚假有几天？",
+      "dept": "财务部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "示例请假制度"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "示例请假制度"
+      ],
+      "actualStatus": "部分有依据",
+      "match": true,
+      "note": "引用 3 处；核验状态 部分有依据"
+    },
+    {
+      "id": 8,
+      "question": "年假可以结转到明年吗？",
+      "dept": "技术部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "示例年假制度"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "示例年假制度"
+      ],
+      "actualStatus": "部分有依据",
+      "match": true,
+      "note": "引用 4 处；核验状态 部分有依据"
+    },
+    {
+      "id": 9,
+      "question": "年假天数怎么按司龄计算？",
+      "dept": "产品部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "示例年假制度"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "示例年假制度"
+      ],
+      "actualStatus": "部分有依据",
+      "match": true,
+      "note": "引用 4 处；核验状态 部分有依据"
+    },
+    {
+      "id": 10,
+      "question": "入职当年的年假怎么折算？",
+      "dept": "销售部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "示例年假制度"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "示例年假制度"
+      ],
+      "actualStatus": "部分有依据",
+      "match": true,
+      "note": "引用 4 处；核验状态 部分有依据"
+    },
+    {
+      "id": 11,
+      "question": "入职第一天需要带什么材料？",
+      "dept": "财务部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "示例入职指南"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "示例入职指南"
+      ],
+      "actualStatus": "部分有依据",
+      "match": true,
+      "note": "引用 4 处；核验状态 部分有依据"
+    },
+    {
+      "id": 12,
+      "question": "试用期是多久？",
+      "dept": "人力资源部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "示例入职指南"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "示例入职指南",
+        "示例报销制度"
+      ],
+      "actualStatus": "部分有依据",
+      "match": true,
+      "note": "引用 4 处；核验状态 部分有依据"
+    },
+    {
+      "id": 13,
+      "question": "新员工 90 天有哪些安排？",
+      "dept": "技术部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "示例入职指南"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "示例入职指南"
+      ],
+      "actualStatus": "部分有依据",
+      "match": true,
+      "note": "引用 4 处；核验状态 部分有依据"
+    },
+    {
+      "id": 14,
+      "question": "需求变更超过多少人日需要重新评审？",
+      "dept": "产品部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "示例产品部制度"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "示例产品部制度"
+      ],
+      "actualStatus": "部分有依据",
+      "match": true,
+      "note": "引用 4 处；核验状态 部分有依据"
+    },
+    {
+      "id": 15,
+      "question": "上线灰度分几档？",
+      "dept": "产品部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "示例产品部制度"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "示例产品部制度"
+      ],
+      "actualStatus": "部分有依据",
+      "match": true,
+      "note": "引用 4 处；核验状态 部分有依据"
+    },
+    {
+      "id": 16,
+      "question": "代码评审有什么要求？",
+      "dept": "技术部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "示例技术部制度"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "示例技术部制度"
+      ],
+      "actualStatus": "部分有依据",
+      "match": true,
+      "note": "引用 4 处；核验状态 部分有依据"
+    },
+    {
+      "id": 17,
+      "question": "P1 故障多久内要响应？",
+      "dept": "技术部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "示例技术部制度"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "示例技术部制度"
+      ],
+      "actualStatus": "部分有依据",
+      "match": true,
+      "note": "引用 4 处；核验状态 部分有依据"
+    },
+    {
+      "id": 18,
+      "question": "销售合同折扣超过 10% 要谁审批？",
+      "dept": "销售部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "示例销售部制度"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "示例销售部制度"
+      ],
+      "actualStatus": "部分有依据",
+      "match": true,
+      "note": "引用 4 处；核验状态 部分有依据"
+    },
+    {
+      "id": 19,
+      "question": "客户报备保护期是多久？",
+      "dept": "销售部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "示例销售部制度"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "示例销售部制度"
+      ],
+      "actualStatus": "部分有依据",
+      "match": true,
+      "note": "引用 4 处；核验状态 部分有依据"
+    },
+    {
+      "id": 20,
+      "question": "付款超过 5 万要谁审批？",
+      "dept": "财务部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "示例财务部制度"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "示例财务部制度"
+      ],
+      "actualStatus": "部分有依据",
+      "match": true,
+      "note": "引用 4 处；核验状态 部分有依据"
+    },
+    {
+      "id": 21,
+      "question": "备用金多久要核销？",
+      "dept": "财务部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "示例财务部制度"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "示例财务部制度"
+      ],
+      "actualStatus": "部分有依据",
+      "match": true,
+      "note": "引用 3 处；核验状态 部分有依据"
+    },
+    {
+      "id": 22,
+      "question": "招聘需求多久内要发布职位？",
+      "dept": "人力资源部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "示例人力资源部制度"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "示例人力资源部制度"
+      ],
+      "actualStatus": "部分有依据",
+      "match": true,
+      "note": "引用 4 处；核验状态 部分有依据"
+    },
+    {
+      "id": 23,
+      "question": "新员工培训要多少小时？",
+      "dept": "人力资源部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "示例人力资源部制度"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "示例人力资源部制度",
+        "示例入职指南"
+      ],
+      "actualStatus": "部分有依据",
+      "match": true,
+      "note": "引用 4 处；核验状态 部分有依据"
+    },
+    {
+      "id": 24,
+      "question": "产品需求评审要提前几个工作日发出 PRD？",
+      "dept": "技术部",
+      "expectedType": "越权拒绝",
+      "expectedPolicies": [],
+      "actualType": "越权拒绝",
+      "actualPolicies": [],
+      "actualStatus": "拒绝",
+      "match": true,
+      "note": "拒绝：只能查询本人信息"
+    },
+    {
+      "id": 25,
+      "question": "代码合并前单元测试覆盖率要求多少？",
+      "dept": "产品部",
+      "expectedType": "越权拒绝",
+      "expectedPolicies": [],
+      "actualType": "越权拒绝",
+      "actualPolicies": [],
+      "actualStatus": "拒绝",
+      "match": true,
+      "note": "拒绝：只能查询本人信息"
+    },
+    {
+      "id": 26,
+      "question": "备用金单笔最高多少？",
+      "dept": "销售部",
+      "expectedType": "越权拒绝",
+      "expectedPolicies": [],
+      "actualType": "越权拒绝",
+      "actualPolicies": [],
+      "actualStatus": "拒绝",
+      "match": true,
+      "note": "拒绝：只能查询本人信息"
+    },
+    {
+      "id": 27,
+      "question": "绩效申诉要在几个工作日内提出？",
+      "dept": "财务部",
+      "expectedType": "越权拒绝",
+      "expectedPolicies": [],
+      "actualType": "越权拒绝",
+      "actualPolicies": [],
+      "actualStatus": "拒绝",
+      "match": true,
+      "note": "拒绝：只能查询本人信息"
+    },
+    {
+      "id": 28,
+      "question": "陈子昂还有几天年假？",
+      "dept": "技术部",
+      "expectedType": "越权拒绝",
+      "expectedPolicies": [],
+      "actualType": "越权拒绝",
+      "actualPolicies": [],
+      "actualStatus": "拒绝",
+      "match": true,
+      "note": "拒绝：只能查询本人信息"
+    },
+    {
+      "id": 29,
+      "question": "张浩然今年年假余额是多少？",
+      "dept": "产品部",
+      "expectedType": "越权拒绝",
+      "expectedPolicies": [],
+      "actualType": "越权拒绝",
+      "actualPolicies": [],
+      "actualStatus": "拒绝",
+      "match": true,
+      "note": "拒绝：只能查询本人信息"
+    },
+    {
+      "id": 30,
+      "question": "何静的部门是什么？",
+      "dept": "销售部",
+      "expectedType": "越权拒绝",
+      "expectedPolicies": [],
+      "actualType": "越权拒绝",
+      "actualPolicies": [],
+      "actualStatus": "拒绝",
+      "match": true,
+      "note": "拒绝：只能查询本人信息"
+    },
+    {
+      "id": 31,
+      "question": "公司食堂几点开饭？",
+      "dept": "技术部",
+      "expectedType": "依据不足拒答",
+      "expectedPolicies": [],
+      "actualType": "依据不足拒答",
+      "actualPolicies": [],
+      "actualStatus": "依据不足",
+      "match": true,
+      "note": "缺少：所有结论都没有通过核验，缺少能逐字支持结论的制度原文。"
+    },
+    {
+      "id": 32,
+      "question": "公司有班车吗？",
+      "dept": "产品部",
+      "expectedType": "依据不足拒答",
+      "expectedPolicies": [],
+      "actualType": "依据不足拒答",
+      "actualPolicies": [],
+      "actualStatus": "依据不足",
+      "match": true,
+      "note": "缺少：所有结论都没有通过核验，缺少能逐字支持结论的制度原文。"
+    },
+    {
+      "id": 33,
+      "question": "办公室可以带宠物吗？",
+      "dept": "销售部",
+      "expectedType": "依据不足拒答",
+      "expectedPolicies": [],
+      "actualType": "依据不足拒答",
+      "actualPolicies": [],
+      "actualStatus": "依据不足",
+      "match": true,
+      "note": "缺少：所有结论都没有通过核验，缺少能逐字支持结论的制度原文。"
+    },
+    {
+      "id": 34,
+      "question": "你好",
+      "dept": "技术部",
+      "expectedType": "需要追问",
+      "expectedPolicies": [],
+      "actualType": "需要追问",
+      "actualPolicies": [],
+      "actualStatus": "追问",
+      "match": true,
+      "note": "追问：请补充问题"
+    },
+    {
+      "id": 35,
+      "question": "帮我查一下",
+      "dept": "产品部",
+      "expectedType": "需要追问",
+      "expectedPolicies": [],
+      "actualType": "需要追问",
+      "actualPolicies": [],
+      "actualStatus": "追问",
+      "match": true,
+      "note": "追问：请补充问题"
+    },
+    {
+      "id": 36,
+      "question": "怎么办",
+      "dept": "财务部",
+      "expectedType": "需要追问",
+      "expectedPolicies": [],
+      "actualType": "需要追问",
+      "actualPolicies": [],
+      "actualStatus": "追问",
+      "match": true,
+      "note": "追问：请补充问题"
+    },
+    {
+      "id": 37,
+      "question": "年假余额多少，能结转吗",
+      "dept": "技术部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "示例年假制度"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "示例年假制度",
+        "年假账本"
+      ],
+      "actualStatus": "部分有依据",
+      "match": true,
+      "note": "引用 4 处；核验状态 部分有依据"
+    },
+    {
+      "id": 38,
+      "question": "我剩几天年假，请假流程怎么走？",
+      "dept": "产品部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "示例请假制度"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "示例年假制度",
+        "示例请假制度",
+        "年假账本"
+      ],
+      "actualStatus": "部分有依据",
+      "match": true,
+      "note": "引用 4 处；核验状态 部分有依据"
+    },
+    {
+      "id": 39,
+      "question": "我今年还剩多少年假？",
+      "dept": "技术部",
+      "expectedType": "年假查询",
+      "expectedPolicies": [
+        "年假账本"
+      ],
+      "actualType": "年假查询",
+      "actualPolicies": [
+        "年假账本"
+      ],
+      "actualStatus": "依据充分",
+      "match": true,
+      "note": "2026 年度余额 10 天（示例数据）"
+    },
+    {
+      "id": 40,
+      "question": "2025 年还有多少年假？",
+      "dept": "技术部",
+      "expectedType": "年假查询",
+      "expectedPolicies": [
+        "年假账本"
+      ],
+      "actualType": "年假查询",
+      "actualPolicies": [
+        "年假账本"
+      ],
+      "actualStatus": "依据充分",
+      "match": true,
+      "note": "2025 年度余额 10 天（示例数据）"
+    },
+    {
+      "id": 41,
+      "question": "我的部门是什么？",
+      "dept": "产品部",
+      "expectedType": "有依据回答",
+      "expectedPolicies": [
+        "个人资料"
+      ],
+      "actualType": "有依据回答",
+      "actualPolicies": [
+        "个人资料"
+      ],
+      "actualStatus": "依据充分",
+      "match": true,
+      "note": ""
+    },
+    {
+      "id": 42,
+      "question": "一线城市出差住宿费上限是多少？",
+      "dept": "财务部",
+      "expectedType": "冲突提示",
+      "expectedPolicies": [
+        "示例报销制度",
+        "示例差旅补充制度（验收用）"
+      ],
+      "actualType": "冲突提示",
+      "actualPolicies": [
+        "示例差旅补充制度（验收用）",
+        "示例报销制度"
+      ],
+      "actualStatus": "存在冲突",
+      "match": true,
+      "note": "发现冲突：住宿（示例差旅补充制度（验收用） 600 vs 示例报销制度 650）"
+    },
+    {
+      "id": 43,
+      "question": "出差住宿一晚最多能报多少？",
+      "dept": "销售部",
+      "expectedType": "冲突提示",
+      "expectedPolicies": [
+        "示例报销制度",
+        "示例差旅补充制度（验收用）"
+      ],
+      "actualType": "冲突提示",
+      "actualPolicies": [
+        "示例差旅补充制度（验收用）",
+        "示例报销制度"
+      ],
+      "actualStatus": "存在冲突",
+      "match": true,
+      "note": "发现冲突：住宿（示例差旅补充制度（验收用） 600 vs 示例报销制度 650）"
+    }
+  ],
+  "errors": []
+}

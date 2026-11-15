@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>学习后台 · 初见 Onboard</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f2d52'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='%23ffffff' font-family='Microsoft YaHei, sans-serif'%3E初%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="academy.css">
+</head>
+<body>
+  <div class="academy-shell">
+    <header class="academy-topbar">
+      <div class="academy-brand">
+        <span class="academy-brand-mark">初</span>
+        <div>
+          <p class="academy-brand-name">初见 Onboard · 学习后台</p>
+          <p class="academy-brand-sub">把已经做出来的功能讲清楚，也把没做的写清楚</p>
+        </div>
+      </div>
+      <div class="academy-top-actions">
+        <button type="button" class="academy-guide-entry" id="academy-nav-guide-entry">✦ 进入导航 · 学习模式</button>
+        <span class="academy-progress" id="academy-progress">已读 0 / 0</span>
+        <a class="academy-home-link" href="../index.html">← 返回门户首页</a>
+      </div>
+    </header>
+    <div class="academy-body">
+      <aside class="academy-side" aria-label="模块目录">
+        <p class="academy-side-title">模块目录</p>
+        <div id="academy-directory"></div>
+        <p class="academy-side-note">学习内容对所有人开放；当前是静态阅读与进度记录，没有互动练习或 AI 陪练。</p>
+      </aside>
+      <main class="academy-main" id="academy-main" tabindex="-1"></main>
+    </div>
+  </div>
+  <button type="button" class="academy-selection-button" id="academy-selection-button" hidden>解释一下</button>
+  <aside class="academy-learn-panel" id="academy-learn-panel" aria-label="划词学习" hidden></aside>
+  <script src="../js/sha256.js"></script>
+  <script src="../js/roles.js"></script>
+  <script src="../js/store.js"></script>
+  <script src="modules.js"></script>
+  <script src="product.js"></script>
+  <script src="prd.js"></script>
+  <script src="training.js"></script>
+  <script src="interview.js"></script>
+  <script src="academy.js"></script>
+  <script src="../js/nav-guide.js"></script>
+</body>
+</html>

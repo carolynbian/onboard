@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>载入示例年假（2026 年度）</title>
+<style>
+  body { margin: 0; padding: 32px 20px; background: #eef3f9; color: #24384f;
+         font-family: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif; font-size: 14px; }
+  main { max-width: 960px; margin: 0 auto; padding: 28px 32px; background: #fff;
+          border-radius: 16px; box-shadow: 0 18px 44px rgba(13, 39, 72, .10); }
+  h1 { margin: 0 0 12px; color: #0b2038; font-size: 22px; }
+  h2 { margin: 22px 0 8px; color: #0b2038; font-size: 15px; }
+  p { line-height: 1.8; margin: 0 0 10px; }
+  .note { color: #6b7f96; font-size: 12.5px; }
+  .warn { padding: 10px 14px; border: 1px solid #f3d9a8; border-radius: 10px;
+          background: #fff8ec; color: #8a5a00; font-size: 12.5px; }
+  #status { margin: 16px 0; padding: 12px 14px; border-radius: 10px; background: #eaf1fb;
+            color: #17459a; font-weight: 600; line-height: 1.7; }
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12.5px; }
+  th, td { padding: 8px 10px; border-bottom: 1px solid #eef3f9; text-align: left; }
+  th { background: #f7fafd; color: #6b7f96; font-weight: 600; }
+  a { color: #1f5cc0; }
+  .links { margin-top: 18px; }
+  .ok { color: #1d7a45; }
+  .skip { color: #8a5a00; }
+</style>
+</head>
+<body>
+<main>
+  <h1>载入示例年假（2026 年度）</h1>
+  <p>这个页面会给 14 个示例账号（ONB001 – ONB014）生成 <strong>2026 年度</strong>的年假数据：每人 <strong>2–4 条流水</strong>，原因都带“示例”二字，余额各不相同（2.5、5、7.5、10、12、3、4.5、6、8.5、9、11、13、14.5、15 天）。</p>
+  <p class="warn">我（助手）无法直接操作你电脑上的浏览器，所以用这个页面代替手动逐条录入；它写入的流水与“年假管理 → 调整年假”生成的是同一种数据，余额也同样是流水合计。</p>
+  <p class="note">前提：先打开 <code>../index.html</code> 完成“创建工作空间”，并已导入示例员工（<code>示例员工导入.csv</code>）。重复运行不会重复生成。</p>
+  <div id="status">检查中…</div>
+  <div id="result"></div>
+  <p class="links"><a href="../index.html#/leaveAdmin">打开年假管理</a> · <a href="../index.html#/myLeave">打开我的年假</a></p>
+</main>
+
+<script src="../config/app-config.js"></script>
+<script src="../js/sha256.js"></script>
+<script src="../js/roles.js"></script>
+<script src="../js/store.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var YEAR = '2026';
+
+  // 每人目标余额都不同
+  var SAMPLE_ACCOUNTS = [
+    { account: 'ONB001', target: 2.5 },
+    { account: 'ONB002', target: 5 },
+    { account: 'ONB003', target: 7.5 },
+    { account: 'ONB004', target: 10 },
+    { account: 'ONB005', target: 12 },
+    { account: 'ONB006', target: 3 },
+    { account: 'ONB007', target: 4.5 },
+    { account: 'ONB008', target: 6 },
+    { account: 'ONB009', target: 8.5 },
+    { account: 'ONB010', target: 9 },
+    { account: 'ONB011', target: 11 },
+    { account: 'ONB012', target: 13 },
+    { account: 'ONB013', target: 14.5 },
+    { account: 'ONB014', target: 15 }
+  ];
+
+  // 每人 2 / 3 / 4 条流水轮换：领取 + 已休若干笔
+  var PLANS = {
+    2: [{ delta: -3, reason: '示例：已休 3 天' }],
+    3: [{ delta: -1.5, reason: '示例：已休 1.5 天' }, { delta: -2.5, reason: '示例：已休 2.5 天' }],
+    4: [{ delta: -1, reason: '示例：已休 1 天' }, { delta: -2, reason: '示例：已休 2 天' }, { delta: -3, reason: '示例：已休 3 天' }]
+  };
+
+  var statusEl = document.getElementById('status');
+  var resultEl = document.getElementById('result');
+  var DATA_KEY = 'onboard.data.v1';
+
+  function show(html) { statusEl.innerHTML = html; }
+  function round2(value) { return Math.round(Number(value) * 100) / 100; }
+
+  if (!window.OnboardStore) {
+    show('脚本加载失败：请确认本页面在 onboard/示例账号 文件夹内，且上级目录有 index.html 和 js 文件夹。');
+    return;
+  }
+
+  var store = window.OnboardStore;
+
+  if (!store.hasWorkspace()) {
+    show('还没有创建工作空间。请先打开 <a href="../index.html">../index.html</a> 完成“创建工作空间”，然后再回到本页面运行一次。');
+    return;
+  }
+
+  var me = store.currentUser();
+  var created = [];
+  var skipped = [];
+  var stampFor = {};
+
+  SAMPLE_ACCOUNTS.forEach(function (sample, index) {
+    var user = store.findUserByAccount(sample.account);
+    if (!user) {
+      skipped.push({ account: sample.account, name: '（未导入）', reason: '找不到该员工账号，请先导入示例员工' });
+      return;
+    }
+
+    var existing = store.listLeaveEntries(user.id, YEAR);
+    if (existing.length) {
+      skipped.push({ account: sample.account, name: user.name, reason: '已有 2026 年流水，未改动' });
+      return;
+    }
+
+    var count = 2 + (index % 3);
+    var plan = PLANS[count];
+    var used = plan.reduce(function (sum, item) { return sum + Math.abs(item.delta); }, 0);
+    var grant = round2(sample.target + used);
+
+    var before = store.listLeaveEntries(user.id, YEAR).length;
+
+    var grantResult = store.addLeaveEntry({
+      userId: user.id,
+      year: YEAR,
+      delta: grant,
+      reason: '示例：2026 年度年假发放',
+      type: 'manual',
+      createdBy: me ? me.id : ''
+    });
+    if (!grantResult.ok) {
+      skipped.push({ account: sample.account, name: user.name, reason: grantResult.message });
+      return;
+    }
+    created.push({ account: sample.account, name: user.name, target: sample.target, entries: 1 + plan.length });
+    stampFor[grantResult.entry.id] = 45;
+
+    var dayOffset = 20;
+    plan.forEach(function (item) {
+      var result = store.addLeaveEntry({
+        userId: user.id,
+        year: YEAR,
+        delta: item.delta,
+        reason: item.reason,
+        type: 'manual',
+        createdBy: me ? me.id : ''
+      });
+      if (result.ok) stampFor[result.entry.id] = dayOffset;
+      dayOffset -= 7;
+    });
+
+    if (store.listLeaveEntries(user.id, YEAR).length === before) {
+      skipped.push({ account: sample.account, name: user.name, reason: '写入失败' });
+    }
+  });
+
+  // 把创建时间错开一点，让“最后更新时间”看起来更真实
+  var data = JSON.parse(window.localStorage.getItem(DATA_KEY) || 'null');
+  if (data && Array.isArray(data.leaveEntries)) {
+    data.leaveEntries.forEach(function (entry) {
+      if (stampFor[entry.id]) {
+        entry.createdAt = new Date(Date.now() - stampFor[entry.id] * 24 * 60 * 60 * 1000).toISOString();
+      }
+    });
+    window.localStorage.setItem(DATA_KEY, JSON.stringify(data));
+  }
+
+  var rows = created.map(function (item) {
+    var user = store.findUserByAccount(item.account);
+    var balance = user ? store.getLeaveBalance(user.id, YEAR) : 0;
+    return '<tr><td>' + item.name + '（' + item.account + '）</td><td>' + item.entries + ' 条</td><td>' + balance + ' 天</td><td class="ok">已生成</td></tr>';
+  }).concat(skipped.map(function (item) {
+    return '<tr><td>' + item.name + '（' + item.account + '）</td><td>—</td><td>—</td><td class="skip">跳过：' + item.reason + '</td></tr>';
+  })).join('');
+
+  show('完成：为 ' + created.length + ' 位员工生成了 2026 年度示例年假' +
+    (skipped.length ? '，跳过 ' + skipped.length + ' 位（已有记录或账号缺失）' : '') + '。');
+
+  if (created.length) {
+    resultEl.innerHTML = '<h2>生成结果</h2>' +
+      '<table><thead><tr><th>员工</th><th>流水条数</th><th>2026 年余额</th><th>结果</th></tr></thead><tbody>' + rows + '</tbody></table>' +
+      '<p class="note">余额各不相同；所有流水原因都带“示例”二字，可在“年假管理 → 查看流水”或员工端“我的年假”里核对。</p>';
+  } else if (skipped.length) {
+    resultEl.innerHTML = '<h2>生成结果</h2>' +
+      '<table><thead><tr><th>员工</th><th>流水条数</th><th>2026 年余额</th><th>结果</th></tr></thead><tbody>' + rows + '</tbody></table>' +
+      '<p class="note">没有新增数据。若账号缺失，请先到“员工管理 → 批量导入”导入示例员工。</p>';
+  }
+})();
+</script>
+</body>
+</html>

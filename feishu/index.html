@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>飞书工作台入口 · 初见 Onboard</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f2d52'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='%23ffffff' font-family='Microsoft YaHei, sans-serif'%3E初%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+  <div class="feishu-entry-page">
+    <section class="feishu-entry-card">
+      <div class="feishu-entry-brand"><span class="brand-mark">初</span> 初见 Onboard</div>
+      <h1 class="feishu-entry-title">飞书工作台入口</h1>
+      <p class="feishu-entry-note">当前未与真实企业飞书联调，不含机器人消息通知。这里仅演示“已绑定身份”的进入流程；系统不会按姓名自动创建账号。</p>
+      <div class="field">
+        <label for="feishu-entry-id">飞书身份标识（open_id / user_id）</label>
+        <input class="input" id="feishu-entry-id" type="text" maxlength="100" placeholder="请输入管理员已绑定的飞书身份">
+      </div>
+      <button type="button" class="btn btn-primary btn-block" id="feishu-entry-submit">通过飞书身份进入</button>
+      <p class="feishu-entry-message" id="feishu-entry-message"></p>
+      <p class="login-foot" style="margin-top:16px;">管理员需要在“飞书接入”页面把飞书身份绑定到已有员工账号，之后权限与该员工账号完全一致。</p>
+      <p class="login-feishu-entry"><a href="../index.html">← 返回普通登录</a></p>
+    </section>
+  </div>
+
+  <div id="toast-root" class="toast-root" aria-live="polite"></div>
+
+  <script src="../config/app-config.js"></script>
+  <script src="../js/sha256.js"></script>
+  <script src="../js/roles.js"></script>
+  <script src="../js/store.js"></script>
+  <script>
+    (function () {
+      var store = window.OnboardStore;
+      var input = document.getElementById('feishu-entry-id');
+      var button = document.getElementById('feishu-entry-submit');
+      var message = document.getElementById('feishu-entry-message');
+
+      button.addEventListener('click', function () {
+        message.textContent = '';
+        if (!store.hasWorkspace()) {
+          message.textContent = '这台电脑上还没有工作空间，请先由管理员创建工作空间并绑定飞书身份。';
+          return;
+        }
+        var feishuId = input.value.trim();
+        if (!feishuId) {
+          message.textContent = '请填写飞书身份标识。';
+          return;
+        }
+
+        var bound = store.getFeishuBoundUser(feishuId);
+        if (!bound || !bound.user) {
+          message.textContent = '这个飞书身份尚未绑定员工账号，请联系管理员。系统不会按姓名自动创建账号。';
+          return;
+        }
+
+        store.setSession(bound.user.id);
+        message.textContent = '已绑定员工账号：' + bound.user.name + '（' + bound.user.account + '），正在进入员工页…';
+        window.setTimeout(function () {
+          window.location.href = '../index.html#/assistant';
+        }, 400);
+      });
+    })();
+  </script>
+  <script src="../js/nav-guide.js"></script>
+</body>
+</html>
